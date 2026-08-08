@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>House of Humour — Stand-Up Comedy Talent Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hoh.css">
+</head>
+<body>
+
+<div class="wrap">
+  <!-- Spotlight Stage Lighting Effect -->
+  <div class="spotlight"></div>
+
+  <header>
+    <div class="logo-wrap">
+      <img src="logo.png" alt="House of Humour Logo" class="brand-logo">
+    </div>
+    
+    <div class="eyebrow">
+      <span class="pulse-dot"></span>
+      <span>EAST ZONE AUDITIONS OPEN · TALENT HUNT</span>
+    </div>
+    
+    <h1>Spotlight's on <em>you</em></h1>
+    <p class="lede">House of Humour is scouting India's next breakout stand-up comics. Fill in your audition profile to send your set directly to our scouting team.</p>
+
+    <!-- Quick Feature Bar -->
+    <div class="perks-bar">
+      <div class="perk-chip"><span>🎤</span> Stand-up & Improv</div>
+      <div class="perk-chip"><span>📍</span> East Zone Scouting</div>
+      <div class="perk-chip"><span>⚡</span> Direct Scout Review</div>
+    </div>
+
+    <!-- Cash Prizes Podium Banner -->
+    <div class="prize-card">
+      <div class="prize-badge">🏆 EAST ZONE CASH PRIZES</div>
+      <div class="prize-podium">
+        <!-- 2nd Prize (Left Podium) -->
+        <div class="prize-item silver">
+          <span class="rank">🥈 2ND PRIZE</span>
+          <span class="amount">₹15,000</span>
+        </div>
+        <!-- 1st Prize (Center Elevated Gold Podium) -->
+        <div class="prize-item gold">
+          <span class="rank">👑 1ST PRIZE 👑</span>
+          <span class="amount">₹25,000</span>
+        </div>
+        <!-- 3rd Prize (Right Podium) -->
+        <div class="prize-item bronze">
+          <span class="rank">🥉 3RD PRIZE</span>
+          <span class="amount">₹10,000</span>
+        </div>
+      </div>
+      <p class="prize-sub">Make them laugh. Win it all.</p>
+    </div>
+  </header>
+
+  <div class="progress">
+    <div class="dot active" id="dot1"></div>
+    <div class="bar"></div>
+    <div class="dot" id="dot2"></div>
+  </div>
+
+  <!-- STEP 1: Audition Details Form -->
+  <form id="hohForm" class="card-box">
+    <div class="section-title">
+      <span class="sec-num">01</span>
+      <span>Performer Contact</span>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="name">Stage / Real Name <span class="req">Required</span></label>
+        <input type="text" id="name" placeholder="e.g. Tushar Shaw" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="phone">WhatsApp Number <span class="req">Required</span></label>
+        <input type="tel" id="phone" placeholder="e.g. 98XXXXXXXX" required autocomplete="tel">
+      </div>
+    </div>
+
+    <div class="section-title margin-top">
+      <span class="sec-num">02</span>
+      <span>Stage & Region</span>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="state">State (East Zone) <span class="req">Required</span></label>
+        <select id="state" required>
+          <option value="" disabled selected>Select your state</option>
+          <optgroup label="East Zone States">
+            <option value="West Bengal">West Bengal</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Assam">Assam</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Nagaland">Nagaland</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="field">
+        <label for="city">City / Base <span class="req">Optional</span></label>
+        <input type="text" id="city" placeholder="e.g. Kolkata, Bhubaneswar">
+      </div>
+    </div>
+
+    <div class="section-title margin-top">
+      <span class="sec-num">03</span>
+      <span>Links & Performance Media</span>
+    </div>
+
+    <div class="field">
+      <label for="social">Instagram / Social Handle <span class="req">Optional</span></label>
+      <input type="text" id="social" placeholder="@yourhandle">
+    </div>
+
+    <div class="field">
+      <label for="videoLink">Performance Video Link <span class="req">Optional</span></label>
+      <input type="url" id="videoLink" placeholder="YouTube, Drive, Vimeo, or Reel link">
+    </div>
+
+    <div class="field">
+      <label for="notes">Stage Bio & Notes <span class="req">Optional</span></label>
+      <textarea id="notes" placeholder="Set duration, open mic experience, crowd response, or context"></textarea>
+    </div>
+
+    <p class="errmsg" id="errmsg">Please complete your name, WhatsApp number, and state.</p>
+
+    <div class="submit-row">
+      <button type="submit" class="send" id="sendBtn">
+        <span class="spinner" id="spinner"></span>
+        <span id="sendBtnLabel">Send Audition Dossier to WhatsApp 🎬</span>
+      </button>
+      <p class="send-note">Your audition profile will be structured & pre-loaded directly into WhatsApp chat.</p>
+    </div>
+  </form>
+
+  <!-- STEP 2: WhatsApp Audition Launcher -->
+  <div class="step2 card-box" id="step2">
+    <div class="step2-header">
+      <div class="check">✓</div>
+      <h2>Audition Dossier Prepared!</h2>
+      <p>Tap below to launch WhatsApp with <b id="waNumberLabel"></b>. Your profile details are pre-loaded — just attach your performance clip and hit send.</p>
+    </div>
+
+    <div class="audition-preview" id="auditionPreview">
+      <div class="preview-badge">AUDITION DOSSIER READY</div>
+      <div class="preview-item"><span class="lbl">Performer:</span> <span class="val" id="prevName">-</span></div>
+      <div class="preview-item"><span class="lbl">State & City:</span> <span class="val" id="prevState">-</span></div>
+    </div>
+
+    <div class="clipcard">
+      <span>Next Step: Attach video file in WhatsApp chat</span>
+      <span>🎬</span>
+    </div>
+
+    <a class="wa" id="waBtn" href="#" target="_blank" rel="noopener noreferrer">Launch WhatsApp to Send Clip 🚀</a>
+    <a class="call-btn" id="callBtn" href="tel:+919230374701">📞 Call Scout Directly · +91 92303 74701</a>
+    
+    <p class="fallback" id="fallback" style="display:none;">App didn't open? <a id="fallbackLink" href="#" target="_blank" rel="noopener noreferrer">Click here to open web link</a></p>
+  </div>
+
+  <!-- How It Works Timeline -->
+  <div class="steps">
+    <h2>Audition Process</h2>
+    <div class="step">
+      <span class="num">1</span>
+      <p><b>Submit Dossier.</b> Enter your stage name, location, comedy style & performance link.</p>
+    </div>
+    <div class="step">
+      <span class="num">2</span>
+      <p><b>Launch WhatsApp.</b> Your audition file will automatically format in WhatsApp chat.</p>
+    </div>
+    <div class="step">
+      <span class="num">3</span>
+      <p><b>Attach Clip.</b> Send your 3–10 min stand-up clip for direct scouting evaluation.</p>
+    </div>
+  </div>
+
+  <footer>House of Humour · Official Stand-Up Comedy Portal · Scout Line: +91 92303 74701</footer>
+</div>
+
+<script src="hoh.js"></script>
+
+</body>
+</html>
